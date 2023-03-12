@@ -87,6 +87,7 @@ AI: Hello! How can I assist you today?
 
     while True:
         prompt = input(f'User: ')
+        print("User input: " + prompt)
         if ctx != "":
             ctx = ctx + "User: " + prompt + "\n"
         else:
