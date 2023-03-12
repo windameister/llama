@@ -68,9 +68,6 @@ def main(
     tokenizer_path: str,
     temperature: float = 0.8,
     top_p: float = 0.95,
-    top_k: int = 40,
-    repetition_penalty: float = (1.0 / 0.85),  # 1.0 to disable repetition_penalty
-    sampler: str = 'top_p',  # top_p or top_k
     max_seq_len: int = 2048,
     max_batch_size: int = 32,
 ):
@@ -99,7 +96,7 @@ AI: Hello! How can I assist you today?
         if len(ctx.strip()) > 0:
             prompts = [ctx]
             results = generator.generate(
-                prompts, max_gen_len=max_seq_len, temperature=temperature, top_p=top_p, top_k=top_k, repetition_penalty=repetition_penalty, sampler=sampler
+                prompts, max_gen_len=max_seq_len, temperature=temperature, top_p=top_p
             )
             ctx = results[0]
 
