@@ -19,6 +19,7 @@ from llama import ModelArgs, Transformer, Tokenizer, LLaMA
 def setup_model_parallel() -> Tuple[int, int]:
     local_rank = int(os.environ.get("LOCAL_RANK", -1))
     world_size = int(os.environ.get("WORLD_SIZE", -1))
+    print(f"setup_model_parallel: local_rank: {local_rank}, world_size: {world_size}")
 
     torch.distributed.init_process_group("nccl")
     initialize_model_parallel(world_size)
