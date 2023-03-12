@@ -94,11 +94,13 @@ AI: Hello! How can I assist you today?
         ctx = (ctx[-1920:]) if len(ctx) >= 2048 else ctx
 
         if len(ctx.strip()) > 0:
+            print(f'prompt: \n{ctx}')
             prompts = [ctx]
             results = generator.generate(
                 prompts, max_gen_len=max_seq_len, temperature=temperature, top_p=top_p
             )
             ctx = results[0]
+            print(f'result: {ctx}')
 
 if __name__ == "__main__":
     fire.Fire(main)
