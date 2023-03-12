@@ -69,7 +69,7 @@ def main(
     tokenizer_path: str,
     temperature: float = 0.8,
     top_p: float = 0.95,
-    max_seq_len: int = 2048,
+    max_seq_len: int = 512,
     max_batch_size: int = 32,
 ):
     local_rank, world_size = setup_model_parallel()
